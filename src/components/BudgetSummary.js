@@ -23,7 +23,6 @@ const BudgetSummary = ({
               type="number" // Input field for new budget
               value={newBudget} // Displays the current value of newBudget
               onChange={(e) => setNewBudget(e.target.value)} // Updates newBudget on change
-              type="number"
               className="budget-input"
               value={newBudget}
               onChange={(e) => setNewBudget(e.target.value)}
