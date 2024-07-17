@@ -1,0 +1,172 @@
+.budget-planner {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  .sidebar {
+    width: 15%;
+    background-color: #D9DBF1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .logo img {
+    margin-top: 50px;
+    width: 300px;
+    height: 150px;
+    mix-blend-mode: multiply;
+  }
+
+  .logout-btn img {
+    width: 30px;
+    height: 20px;
+    margin-bottom: 10px;
+    float: left;
+    mix-blend-mode: multiply;
+  }
+
+  .logout-btn {
+    margin-top: auto;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #000;
+  }
+  
+  .main-content {
+    width: 85%;
+    padding: 0; 
+    background-color: #efefef;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    background-color: #ffffff;
+    padding: 0 20px;
+  }
+
+  .search-bar {
+    width: 200px;
+    margin-right: 60px;
+    background-color: #f0f0f0;
+    padding: 10px 30px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    border-radius: 5px;
+  }
+
+  .search-container {
+    display: flex; 
+    align-items: center; 
+  }
+
+  .search-icon {
+    position: absolute; 
+    top: 6.5%; 
+    transform: translateY(-50%); 
+    right: 315px; 
+    width: 20px; 
+    height: 20px;
+    fill:currentColor; 
+  }
+
+  .summary {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  .summary-item {
+    padding: 20px;
+    border-radius: 22px;
+    text-align: center;
+    width: 28%;
+    color: #fff;
+  }
+  
+  .summary-item.budget {
+    color: #000;
+    background-color: #D0CDD7; 
+  }
+
+  .summary-item.budget img {
+    width: 20px;
+    height: 20px;
+    float: right;
+  }
+
+  
+  .summary-item.remaining {
+    color: black;
+    background-color: #ACB0BD; 
+  }
+  
+  .summary-item.total-spent {
+    background-color: #416165; 
+  }
+  
+  .add-expense {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .add-expense h2 {
+    margin: 10px;
+  }
+  
+  .expense-input {
+    display: block;
+    width: 800px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .add-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #0B3948;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .expense-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .expense-list h2 {
+    margin: 10px;
+  }
+  
+  .expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    width: 800px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .remove-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #0B3948;
+  }
+  
