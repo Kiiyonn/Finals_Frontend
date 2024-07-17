@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../styles/ExpenseForm.css";
 
 const ExpenseForm = ({
   onSubmit,
@@ -27,6 +28,7 @@ const ExpenseForm = ({
       <input
         type="text"
         placeholder="Description"
+        className="expense-input"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         required
@@ -34,6 +36,7 @@ const ExpenseForm = ({
       <input
         type="number"
         placeholder="Amount"
+        className="expense-input"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
         required

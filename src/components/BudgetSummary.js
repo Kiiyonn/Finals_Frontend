@@ -1,5 +1,6 @@
 import React from "react";
 import edit from "../img/edit.svg";
+import "../styles/BudgetSummary.css";
 
 const BudgetSummary = ({
   budget,
@@ -19,6 +20,7 @@ const BudgetSummary = ({
           <>
             <input
               type="number"
+              className="budget-input"
               value={newBudget}
               onChange={(e) => setNewBudget(e.target.value)}
             />

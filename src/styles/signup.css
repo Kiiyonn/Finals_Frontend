@@ -77,8 +77,18 @@ button[type="submit"]:hover {
 }
 
 .login-link {
-  text-align: center;
+  text-align: left;
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: #0B3948;
+
+}
+
+.signup-form a {
+  color: #0B3948;
+  text-decoration: none;
+}
+
+.signup-form a:hover {
+  text-decoration: underline;
 }

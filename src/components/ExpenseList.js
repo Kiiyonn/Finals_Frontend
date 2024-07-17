@@ -1,4 +1,6 @@
 import React from "react";
+import "../styles/ExpenseList.css";
+import remove from "../img/delete.svg";
 
 const ExpenseList = ({ expenses, handleDeleteExpense, handleEditExpense }) => {
   return (
@@ -10,11 +12,12 @@ const ExpenseList = ({ expenses, handleDeleteExpense, handleEditExpense }) => {
             {expense.description}: ${expense.amount} -{" "}
             {new Date(expense.date).toLocaleDateString()}
           </span>
+          <div className="button-container">
           <button
             className="remove-btn"
             onClick={() => handleDeleteExpense(expense.id)}
           >
-            -
+          <img src={remove} alt="Delete" className="icon" />
           </button>
           <button
             className="edit-btn"
@@ -22,6 +25,7 @@ const ExpenseList = ({ expenses, handleDeleteExpense, handleEditExpense }) => {
           >
             Edit
           </button>
+        </div>
         </div>
       ))}
     </section>
