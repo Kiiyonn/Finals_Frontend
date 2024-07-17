@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../styles/ExpenseForm.css";
 
 // Component for submitting expense details
 const ExpenseForm = ({
@@ -30,6 +31,7 @@ const ExpenseForm = ({
       <input
         type="text"
         placeholder="Description"
+        className="expense-input"
         value={description}
         onChange={(e) => setDescription(e.target.value)} // Updates state on input change
         required // Makes the field required for submission
@@ -37,6 +39,7 @@ const ExpenseForm = ({
       <input
         type="number"
         placeholder="Amount"
+        className="expense-input"
         value={amount}
         onChange={(e) => setAmount(e.target.value)} // Updates state on input change
         required // Makes the field required for submission

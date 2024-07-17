@@ -1,4 +1,6 @@
 import React from "react";
+import "../styles/ExpenseList.css";
+import remove from "../img/delete.svg";
 
 // Component for displaying a list of expenses
 const ExpenseList = ({
@@ -33,6 +35,28 @@ const ExpenseList = ({
           </div>
         )
       )}
+      {expenses.map((expense) => (
+        <div className="expense-item" key={expense.id}>
+          <span>
+            {expense.description}: ${expense.amount} -{" "}
+            {new Date(expense.date).toLocaleDateString()}
+          </span>
+          <div className="button-container">
+          <button
+            className="remove-btn"
+            onClick={() => handleDeleteExpense(expense.id)}
+          >
+          <img src={remove} alt="Delete" className="icon" />
+          </button>
+          <button
+            className="edit-btn"
+            onClick={() => handleEditExpense(expense)}
+          >
+            Edit
+          </button>
+        </div>
+        </div>
+      ))}
     </section>
   );
 };

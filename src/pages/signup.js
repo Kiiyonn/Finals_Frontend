@@ -42,6 +42,7 @@ const SignupForm = () => {
           <a href="/login" className="login-link">
             {" "}
             // Link to navigate back to the login page Back to Login
+             Back to Login
           </a>
           <h2>Sign Up</h2> // Form header
           <form onSubmit={handleSubmit}>

@@ -1,0 +1,18 @@
+button{
+    padding: 8px;
+    border: none;
+    background-color: #0B3948;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.budget-input{
+    width: 40%;
+    padding: 8px; 
+    margin-left: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  

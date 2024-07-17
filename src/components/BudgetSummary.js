@@ -1,5 +1,6 @@
 import React from "react";
 import edit from "../img/edit.svg";
+import "../styles/BudgetSummary.css";
 
 // Component for displaying the budget summary
 const BudgetSummary = ({
@@ -22,6 +23,10 @@ const BudgetSummary = ({
               type="number" // Input field for new budget
               value={newBudget} // Displays the current value of newBudget
               onChange={(e) => setNewBudget(e.target.value)} // Updates newBudget on change
+              type="number"
+              className="budget-input"
+              value={newBudget}
+              onChange={(e) => setNewBudget(e.target.value)}
             />
             <button onClick={handleEditBudget}>Save</button> // Button to save
             the new budget

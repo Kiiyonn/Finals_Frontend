@@ -1,0 +1,33 @@
+.edit-btn{
+    padding: 8px;
+    border: none;
+    background-color: #0B3948;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; 
+  }
+  
+  .button-container {
+    display: flex;
+    align-items: center; 
+  }
+  
+  .remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px; 
+  }
+  
+  .icon {
+    width: 20px; 
+    height: 20px; 
+  }
+  
