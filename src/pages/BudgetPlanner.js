@@ -1,16 +1,15 @@
-// src/pages/BudgetPlanner.js
-
 import React, { useState } from "react";
 import "../styles/BudgetPlanner.css";
 import logo from "../img/logo.png";
 import logout from "../img/logout.png";
-import ExpenseForm from "../components/ExpenseForm";
-import Modal from "../components/Modal.js";
-import BudgetSummary from "../components/BudgetSummary.js";
-import ExpenseList from "../components/ExpenseList.js";
-import useFetchUserData from "../hooks/useFetchUserData";
+import ExpenseForm from "../components/ExpenseForm"; // Import ExpenseForm component
+import Modal from "../components/Modal.js"; // Import Modal component
+import BudgetSummary from "../components/BudgetSummary.js"; // Import BudgetSummary component
+import ExpenseList from "../components/ExpenseList.js"; // Import ExpenseList component
+import useFetchUserData from "../hooks/useFetchUserData"; // Import custom hook for fetching user data
 
 const BudgetPlanner = () => {
+  // Destructuring values from the custom hook, providing access to user data and actions
   const {
     budget,
     remaining,
@@ -24,6 +23,7 @@ const BudgetPlanner = () => {
     setTotalSpent,
   } = useFetchUserData();
 
+  // State hooks for handling local UI state
   const [expenseDescription, setExpenseDescription] = useState("");
   const [expenseCost, setExpenseCost] = useState("");
   const [isEditingBudget, setIsEditingBudget] = useState(false);
@@ -31,6 +31,7 @@ const BudgetPlanner = () => {
   const [showModal, setShowModal] = useState(false);
   const [editingExpenseId, setEditingExpenseId] = useState(null);
 
+  // Function to handle adding a new expense via API
   const handleAddExpense = (expense) => {
     fetch("http://localhost:8080/api/expenses", {
       method: "POST",
@@ -46,6 +47,7 @@ const BudgetPlanner = () => {
       .catch((error) => console.error("Error adding expense:", error));
   };
 
+  // Function to handle deleting an expense
   const handleDeleteExpense = (id) => {
     fetch(`http://localhost:8080/api/expenses/${id}`, {
       method: "DELETE",
@@ -55,12 +57,13 @@ const BudgetPlanner = () => {
         const updatedExpenses = expenses.filter((expense) => expense.id !== id);
         const expenseToDelete = expenses.find((expense) => expense.id === id);
         setExpenses(updatedExpenses);
-        setTotalSpent(totalSpent - expenseToDelete.amount);
-        setRemaining(budget - (totalSpent - expenseToDelete.amount));
+        setTotalSpent(totalSpent - expenseToDelete.amount); // Adjust total spent
+        setRemaining(budget - (totalSpent - expenseToDelete.amount)); // Adjust remaining budget
       })
       .catch((error) => console.error("Error deleting expense:", error));
   };
 
+  // Function to handle updating the budget
   const handleEditBudget = () => {
     fetch(`http://localhost:8080/api/users/me/budget`, {
       method: "PUT",
@@ -76,6 +79,7 @@ const BudgetPlanner = () => {
       .catch((error) => console.error("Error updating budget:", error));
   };
 
+  // Function to update an existing expense
   const handleUpdateExpense = (expense) => {
     fetch(`http://localhost:8080/api/expenses/${editingExpenseId}`, {
       method: "PUT",
@@ -87,26 +91,28 @@ const BudgetPlanner = () => {
         const updatedExpenses = expenses.map((exp) =>
           exp.id === editingExpenseId ? data : exp
         );
-        setExpenses(updatedExpenses);
+        setExpenses(updatedExpenses); // Update the expense list with the edited expense
         setTotalSpent(
           updatedExpenses.reduce((acc, exp) => acc + exp.amount, 0)
-        );
-        setRemaining(budget - totalSpent);
-        setShowModal(false);
+        ); // Recalculate total spent
+        setRemaining(budget - totalSpent); // Update remaining budget
+        setShowModal(false); // Close the modal
       })
       .catch((error) => console.error("Error updating expense:", error));
   };
 
+  // Function to set up editing an existing expense
   const handleEditExpense = (expense) => {
     setExpenseDescription(expense.description);
     setExpenseCost(expense.amount);
     setEditingExpenseId(expense.id);
-    setShowModal(true);
+    setShowModal(true); // Show modal for editing
   };
 
+  // Function for logging out
   const handleLogout = () => {
-    localStorage.removeItem("jwtToken");
-    window.location.href = "/login";
+    localStorage.removeItem("jwtToken"); // Remove token from local storage
+    window.location.href = "/login"; // Redirect to login page
   };
 
   return (
@@ -173,4 +179,4 @@ const BudgetPlanner = () => {
   );
 };
 
-export default BudgetPlanner;
+export default BudgetPlanner; // Export the BudgetPlanner component for use in other parts of the application

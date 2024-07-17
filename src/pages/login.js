@@ -4,18 +4,20 @@ import "../styles/login.css";
 import bg from "../img/bg.jpg";
 
 const LoginForm = () => {
+  // State hooks for managing form input and messages
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); // State to store error messages
-  const [token, setToken] = useState(""); // State to store token for debugging
+  const [error, setError] = useState("");
+  const [token, setToken] = useState("");
 
   const navigate = useNavigate();
 
+  // Function to handle form submission
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    console.log("Submitting:", { username, password }); // Debug: Log submitted credentials
+    event.preventDefault(); // Prevents the default form submission behavior
 
     try {
+      // Making a POST request to the authentication endpoint
       const response = await fetch("http://localhost:8080/api/authenticate", {
         method: "POST",
         headers: {
@@ -24,19 +26,19 @@ const LoginForm = () => {
         body: JSON.stringify({ username, password }),
       });
 
-      console.log("Response Status:", response.status); // Debug: Log response status
-      const data = await response.json(); // Parse JSON from response
-      console.log("Response Data:", data); // Debug: Log response data
+      const data = await response.json(); // Parsing the JSON response from the server
 
+      // Handling non-OK responses by throwing an error
       if (!response.ok) {
         throw new Error(data.message || "Failed to login");
       }
 
-      localStorage.setItem("jwtToken", `Bearer ${data.jwt}`); // Storing the token correctly
-      setToken(data.jwt); // Set token in state for debugging
-      console.log("Token stored:", data.jwt); // Debug: Log token storage
+      // Storing the JWT in local storage and updating the state
+      localStorage.setItem("jwtToken", `Bearer ${data.jwt}`);
+      setToken(data.jwt);
+      console.log("Token stored:", data.jwt);
 
-      navigate("/"); // Navigate to the home page
+      navigate("/"); // Navigate to the home page on successful login
     } catch (error) {
       console.error("Error logging in:", error);
       setError(error.message || "An error occurred while logging in");
@@ -46,7 +48,7 @@ const LoginForm = () => {
   return (
     <div className="login-page">
       <div className="background">
-        <img src={bg} alt="background" />
+        <img src={bg} alt="background" /> // Background image for the login page
       </div>
       <div className="form-container">
         <div className="login-form">
@@ -74,11 +76,13 @@ const LoginForm = () => {
             </div>
             <button type="submit">Login</button>
           </form>
-          {error && <p className="error-message">{error}</p>}
-          {token && <p className="token-message">Token: {token}</p>}
+          {error && <p className="error-message">{error}</p>} // Displaying
+          error messages
+          {token && <p className="token-message">Token: {token}</p>} //
+          Debugging: displaying the token
           <div className="signup-link">
-            <span>Don't have an account?</span>{" "}
-            <a href="/signup">Create an account</a>
+            <span>Don't have an account?</span>
+            <a href="/signup">Create an account</a> // Link to the signup page
           </div>
         </div>
       </div>
@@ -86,4 +90,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default LoginForm; // Exporting the LoginForm component
