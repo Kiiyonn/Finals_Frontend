@@ -10,6 +10,10 @@
   align-items: center;
 }
 
+.modal-overlay{
+  background-color:  #D9DBF1;
+}
+
 .modal-content {
   background: white;
   padding: 20px;

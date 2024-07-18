@@ -12,14 +12,14 @@ const Modal = ({
   return (
     <div className="modal-overlay">
       {" "}
-      // Overlay that covers the viewport
+      { /* Overlay that covers the viewport */ }
       <div className="modal-content">
         {" "}
-        // Container for the modal content
+        { /* Container for the modal content */ }
         <button className="close-button" onClick={onClose}>
-          X // Button to close the modal
+          X { /* Button to close the modal */ }
         </button>
-        {children} // Displays the content passed as children
+        {children} { /* Displays the content passed as children */ }
       </div>
     </div>
   );

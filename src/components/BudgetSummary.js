@@ -24,15 +24,13 @@ const BudgetSummary = ({
               value={newBudget} // Displays the current value of newBudget
               onChange={(e) => setNewBudget(e.target.value)} // Updates newBudget on change
               className="budget-input"
-              value={newBudget}
-              onChange={(e) => setNewBudget(e.target.value)}
             />
-            <button onClick={handleEditBudget}>Save</button> // Button to save
-            the new budget
+            <button onClick={handleEditBudget}>Save</button> { /* Button to save 
+            the new budget */ }
           </>
         ) : (
           <>
-            <span>${budget}</span> // Displays the current budget
+            <span>${budget}</span> { /* Displays the current budget */ }
             <img
               src={edit} // Display edit icon
               alt="edit budget"
@@ -43,11 +41,11 @@ const BudgetSummary = ({
       </div>
       <div className="summary-item remaining">
         <h2>Remaining</h2>
-        <span>${remaining}</span> // Displays the remaining budget
+        <span>${remaining}</span> { /* Displays the remaining budget */ }
       </div>
       <div className="summary-item total-spent">
         <h2>Total Spent</h2>
-        <span>${totalSpent}</span> // Displays the total amount spent
+        <span>${totalSpent}</span> { /* Displays the total amount spent */ }
       </div>
     </div>
   );

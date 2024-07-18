@@ -44,13 +44,13 @@ const App = () => {
     <div className="App">
       <Routes>
         {" "}
-        // Define the application routes
-        <Route path="/" element={<BudgetPlanner />} /> // Route for the main
-        budget planner
-        <Route path="/login" element={<LoginForm />} /> // Route for the login
-        form
-        <Route path="/signup" element={<SignupForm />} /> // Route for the
-        signup form
+        { /* Define the application routes */}
+        <Route path="/" element={<BudgetPlanner />} />  { /* Route for the main
+        budget planner */}
+        <Route path="/login" element={<LoginForm />} />  { /* Route for the login
+        form */}
+        <Route path="/signup" element={<SignupForm />} />  { /* Route for the
+        signup form */}
       </Routes>
     </div>
   );

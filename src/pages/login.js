@@ -48,7 +48,7 @@ const LoginForm = () => {
   return (
     <div className="login-page">
       <div className="background">
-        <img src={bg} alt="background" /> // Background image for the login page
+        <img src={bg} alt="background" /> { /* Background image for the login page  */ }
       </div>
       <div className="form-container">
         <div className="login-form">
@@ -76,13 +76,13 @@ const LoginForm = () => {
             </div>
             <button type="submit">Login</button>
           </form>
-          {error && <p className="error-message">{error}</p>} // Displaying
-          error messages
-          {token && <p className="token-message">Token: {token}</p>} //
-          Debugging: displaying the token
+          {error && <p className="error-message">{error}</p>} { /* Displaying
+          error messages  */ }
+          {token && <p className="token-message">Token: {token}</p>} { /*
+          Debugging: displaying the token  */ }
           <div className="signup-link">
             <span>Don't have an account?</span>
-            <a href="/signup">Create an account</a> // Link to the signup page
+            <a href="/signup">Create an account</a> { /* Link to the signup page  */ }
           </div>
         </div>
       </div>

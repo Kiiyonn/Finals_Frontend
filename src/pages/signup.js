@@ -35,22 +35,22 @@ const SignupForm = () => {
   return (
     <div className="signup-page">
       <div className="background">
-        <img src={bg} alt="background" /> // Display the background image
+        <img src={bg} alt="background" /> { /* Display the background image  */ }
       </div>
       <div className="form-container">
         <div className="signup-form">
           <a href="/login" className="login-link">
             {" "}
-            // Link to navigate back to the login page Back to Login
+            { /* Link to navigate back to the login page Back to Login */ }
              Back to Login
           </a>
-          <h2>Sign Up</h2> // Form header
+          <h2>Sign Up</h2>  { /* Form header  */ }
           <form onSubmit={handleSubmit}>
             {" "}
-            // Form element with an onSubmit event handler
+            { /* Form element with an onSubmit event handler  */ }
             <div className="form-group">
-              <label htmlFor="username">Username:</label> // Username input
-              field
+              <label htmlFor="username">Username:</label>  { /* Username input
+              field  */ }
               <input
                 type="text"
                 id="username"
@@ -60,8 +60,8 @@ const SignupForm = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password:</label> // Password input
-              field
+              <label htmlFor="password">Password:</label>  { /* Password input
+              field  */ }
               <input
                 type="password"
                 id="password"
@@ -70,7 +70,7 @@ const SignupForm = () => {
                 required // Field is required
               />
             </div>
-            <button type="submit">Sign Up</button> // Submit button for the form
+            <button type="submit">Sign Up</button>  { /* Submit button for the form  */ }
           </form>
         </div>
       </div>
