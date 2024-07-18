@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.css";
 import bg from "../img/bg.jpg";
+import apiUrl from "../pages/api.js"; // Import apiUrl from api.js
 
 const LoginForm = () => {
   // State hooks for managing form input and messages
@@ -18,7 +19,7 @@ const LoginForm = () => {
 
     try {
       // Making a POST request to the authentication endpoint
-      const response = await fetch("http://localhost:8080/api/authenticate", {
+      const response = await fetch(`${apiUrl}/authenticate`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

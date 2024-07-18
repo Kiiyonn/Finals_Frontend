@@ -1,3 +1,6 @@
+const apiUrl = 'https://finals-backend-dr62.onrender.com/api';
+
+
 // Utility function to make authenticated HTTP requests with a JSON web token (JWT)
 export const fetchWithToken = async (url, method = "GET", body = null) => {
   // Retrieve the JWT from local storage
@@ -17,6 +20,7 @@ export const fetchWithToken = async (url, method = "GET", body = null) => {
   };
 
   // Perform the fetch request using the provided URL and configuration
+  const fullUrl = apiUrl + url; // Construct full URL
   const response = await fetch(url, config);
   // Throw an error if the response is not OK (HTTP status 200-299)
   if (!response.ok) {
@@ -25,3 +29,5 @@ export const fetchWithToken = async (url, method = "GET", body = null) => {
   // Return the parsed JSON from the response
   return await response.json();
 };
+
+export default apiUrl;

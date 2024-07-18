@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/signup.css";
 import bg from "../img/bg.jpg";
+import apiUrl from "../pages/api.js"; // Import apiUrl from api.js
 
 const SignupForm = () => {
   const [username, setUsername] = useState("");
@@ -12,7 +13,7 @@ const SignupForm = () => {
     e.preventDefault();
     try {
       // Attempting to send a POST request to the registration endpoint
-      const response = await fetch("http://localhost:8080/api/register", {
+      const response = await fetch(`${apiUrl}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // Setting content type as JSON

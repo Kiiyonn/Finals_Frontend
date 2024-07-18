@@ -1,4 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
+import { fetchWithToken } from "../pages/api.js"; // Import fetchWithToken from api.js
+import apiUrl from "../pages/api.js"; // Import apiUrl from api.js
 
 // Custom React hook for fetching and managing user data and expenses
 const useFetchUserData = () => {
@@ -29,7 +31,7 @@ const useFetchUserData = () => {
     }
 
     // Fetch user data from the API
-    fetch("http://localhost:8080/api/users/me", { headers })
+    fetch(`${apiUrl}/users/me`, { headers })
       .then((response) => {
         // Handle unauthorized access by redirecting to login
         if (response.status === 401) {
@@ -46,7 +48,7 @@ const useFetchUserData = () => {
       .catch((error) => console.error("Error fetching user data:", error));
 
     // Fetch expenses data from the API
-    fetch("http://localhost:8080/api/expenses", { headers })
+    fetch(`${apiUrl}/expenses`, { headers })
       .then((response) => {
         // Handle unauthorized access by redirecting to login
         if (response.status === 401) {
