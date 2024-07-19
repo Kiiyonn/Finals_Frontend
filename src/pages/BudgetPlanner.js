@@ -7,6 +7,7 @@ import Modal from "../components/Modal.js"; // Import Modal component
 import BudgetSummary from "../components/BudgetSummary.js"; // Import BudgetSummary component
 import ExpenseList from "../components/ExpenseList.js"; // Import ExpenseList component
 import useFetchUserData from "../hooks/useFetchUserData"; // Import custom hook for fetching user data
+import apiUrl from "./api.js";
 
 const BudgetPlanner = () => {
   // Destructuring values from the custom hook, providing access to user data and actions
@@ -33,7 +34,7 @@ const BudgetPlanner = () => {
 
   // Function to handle adding a new expense via API
   const handleAddExpense = (expense) => {
-    fetch("http://localhost:8080/api/expenses", {
+    fetch(`${apiUrl}/expenses`, {
       method: "POST",
       headers,
       body: JSON.stringify(expense),
@@ -49,7 +50,7 @@ const BudgetPlanner = () => {
 
   // Function to handle deleting an expense
   const handleDeleteExpense = (id) => {
-    fetch(`http://localhost:8080/api/expenses/${id}`, {
+    fetch(`${apiUrl}/expenses/${id}`, {
       method: "DELETE",
       headers,
     })
@@ -65,7 +66,7 @@ const BudgetPlanner = () => {
 
   // Function to handle updating the budget
   const handleEditBudget = () => {
-    fetch(`http://localhost:8080/api/users/me/budget`, {
+    fetch(`${apiUrl}/users/me/budget`, {
       method: "PUT",
       headers,
       body: JSON.stringify({ budget: parseFloat(newBudget) }),
@@ -81,7 +82,7 @@ const BudgetPlanner = () => {
 
   // Function to update an existing expense
   const handleUpdateExpense = (expense) => {
-    fetch(`http://localhost:8080/api/expenses/${editingExpenseId}`, {
+    fetch(`${apiUrl}/expenses/${editingExpenseId}`, {
       method: "PUT",
       headers,
       body: JSON.stringify(expense),

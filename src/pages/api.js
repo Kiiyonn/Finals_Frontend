@@ -1,5 +1,4 @@
-const apiUrl = 'https://finals-backend-dr62.onrender.com/api';
-
+const apiUrl = "https://finals-backend-edrt.onrender.com/api";
 
 // Utility function to make authenticated HTTP requests with a JSON web token (JWT)
 export const fetchWithToken = async (url, method = "GET", body = null) => {
